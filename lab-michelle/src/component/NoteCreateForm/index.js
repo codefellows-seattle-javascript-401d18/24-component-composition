@@ -12,6 +12,19 @@ class NoteCreateForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  noteMaker(string) {
+    let note = {
+      id: uuid(),
+      editing: false,
+      completed: false,
+      content: string,
+    };
+    this.setState(prevState => ({
+      notesArr: [...prevState.notesArr, note],
+    })
+  );
+  }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,

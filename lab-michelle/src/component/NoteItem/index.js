@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 
 //double clicking on a note's content should switch to "Edit View" aka show NoteUpdateForm with a cancel button
 //Otherwise, show view that is the note and delete button that gets rid of the note from App
@@ -11,8 +10,22 @@ class NoteItem extends React.Component {
     super(props);
     this.state = {
       //state
+      content: '',
     };
-    //Bind things//
+    //Binding things
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props
   }
 
   render() {
