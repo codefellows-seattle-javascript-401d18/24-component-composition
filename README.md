@@ -32,7 +32,7 @@ refactor and add the following components:
 
 ###### Refactor the NoteItem Component
 * include the following behavior:
-  * if the user double clicks on the notes content, it should switch to the edit view  
+  * if the user double clicks on a note's content, it should switch to the edit view  
 * default view
   * display the note content and a delete button
   * the delete button should remove the note from the application's state
@@ -44,6 +44,7 @@ refactor and add the following components:
 your components should be nested in the following layout  
 ```
 App
+  [Dashboard] optional
   NoteCreateForm
   NoteList
     NoteItem
