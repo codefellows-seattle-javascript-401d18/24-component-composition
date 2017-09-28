@@ -5,24 +5,14 @@ class NoteCreateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: '',
+      id: uuid(),
+      editing: false,
+      completed: false,
+      content: typeof string,
     };
     //Bind things//
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  noteMaker(string) {
-    let note = {
-      id: uuid(),
-      editing: false,
-      completed: false,
-      content: string,
-    };
-    this.setState(prevState => ({
-      notesArr: [...prevState.notesArr, note],
-    })
-  );
   }
 
   handleChange(e) {
@@ -33,7 +23,9 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handleNoteMaker(this.state.content);
+    this.props.app.setState(prevState => ({
+      notesArr: [...prevState.notesArr, this.state],
+    }));
   }
 
   componentDidUpdate() {

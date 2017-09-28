@@ -25,7 +25,9 @@ class NoteItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props
+    this.props.app.setState(prevState => ({
+      notesArr: [...prevState.notesArr, this.state],
+    }));
   }
 
   render() {
