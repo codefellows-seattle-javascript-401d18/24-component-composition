@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
-import NoteCreateForm from './component/note-create-form';
+import NoteCreateForm from './component/NoteCreateForm';
 import uuid from 'uuid/v4';
 // import COMPONENT from './FILEPATH'
 //ex: import DashboardContainer from './component/dashboard-container'
