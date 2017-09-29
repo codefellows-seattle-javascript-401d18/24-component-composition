@@ -16,19 +16,20 @@ class NoteCreateForm extends React.Component {
   }
 
   handleChange(e) {
+    let {name, value} = e.target;
+
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: value
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handleNoteCreate(this.state);
+    this.props.handleSubmit(this.state);
   }
 
   render() {
     return (
-      <div className='note-create'>
       <form onSubmit={this.handleSubmit}>
         <input
           name='title'
@@ -46,11 +47,11 @@ class NoteCreateForm extends React.Component {
           onChange={this.handleChange}
           />
 
-        <button type='submit'>Add Note</button>
+        <button type='submit'>{this.props.buttonText}</button>
       </form>
-    </div>
     );
   }
 }
+
 
 export default NoteCreateForm;
