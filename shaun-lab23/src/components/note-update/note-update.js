@@ -19,4 +19,33 @@ class NoteUpdateForm extends React.Component {
   }
 
 
+    handleSubmit(e) {
+      e.preventDefault();
+    }
+
+    render() {
+      return (
+        <form className='note-update-form'>
+          <input
+            name='title'
+            type='text'
+            placeholder='update title'
+            value={this.state.title}
+            onChange={this.handleChange}
+            />
+
+          <input
+            name='content'
+            type='text'
+            placeholder='update content'
+            value={this.state.content}
+            onChange={this.handleChange}
+            />
+
+          <button onClick=
+        </form>
+      );
+    }
+  }
+
   export default NoteUpdateForm;

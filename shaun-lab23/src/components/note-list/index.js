@@ -6,29 +6,35 @@ class NoteList extends React.Component {
   }
 
   render() {
-      return (
-        <section>
-          { this.props.notes.length === 0 ?
-            <div>
-            </div> :
-            <ul>
-            {this.props.notes.map((note, i) => {
-              console.log('NOTE?', note);
+    return (
+    <section>
+      { this.props.notes.length === 0 ?
+        <div>
+          <p>Add a Note!</p>
+        </div> :
+        <ul>
+        {this.props.notes.map((note, i) => {
+          return (
+            <li key={i}>
+              <button onClick={() => this.props.deleteNote(note)}>X</button>
+              <h2>{note.title}</h2>
+              <p>{note.content}</p>
 
-              return (
-                <li key={i}>
-                  <button onClick={() => this.props.deleteNote(note)}>X</button>
-                  <h2>{note.title}</h2>
-                  <p>{note.content}</p>
-                </li>
-              );
-            })}
-            </ul>
-          }
-        </section>
-      );
-    }
-  }
-
+            <NoteCreateForm
+              buttonText='Update Note'
+              handleSubmit={(noteItem) => {
+                noteItem.id = note.id;
+                this.props.updateNote(noteItem);
+              }}
+              />
+            </li>
+          );
+        })}
+        </ul>
+      }
+    </section>
+  );
+}
+}
 
 export default NoteList;
