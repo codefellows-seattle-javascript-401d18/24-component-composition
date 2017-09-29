@@ -1,11 +1,12 @@
 import './style/main.scss';
 
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
-import AboutContainer from './component/about-container';
-import DashboardContainer from './component/dashboard-container';
 
+import DashboardContainer from './component/dashboard-container';
+import NoteList from './component/note-list';
+import Navbar from './component/navbar';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,11 +15,14 @@ class App extends React.Component {
       notes: [],
     };
     this.getApp = this.getApp.bind(this);
-
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
-  componentDidUpdate() {
-    console.log('__STATE__', this.state);
+
+  deleteNote(id) {
+    let notes = this.state.notes;
+    notes = notes.filter(note => note.id !== id);
+    this.setState({ notes: notes });
   }
 
   getApp() {
@@ -29,30 +33,31 @@ class App extends React.Component {
   }
 
 
+
+  componentDidUpdate(){
+    console.log('___STATE___', this.state);
+  }
+
   render() {
     return (
-      <div className="application">
-        <header>
-          <nav>
-            <ul>
-              <li><a href="/">home</a></li>
-              <li><a href="/about">about</a></li>
-              <li><a href="/pastNotes">Past Notes</a></li>
-              <li><a href="/newNote">New Note</a></li>
-            </ul>
-          </nav>
-        </header>
-        <main className="main-content">
+      <section className="wrapper">
+        <Navbar />
+        <main className="main">
           <BrowserRouter>
             <section>
-              <Route exact path="/" component={() => <DashboardContainer app={this.getApp()}/>}/>
-              <Route exact path="/about" component={AboutContainer}/>
+              <Route exact path='/' component={() => <DashboardContainer app={this.getApp()} />} />
+
+              <NoteList
+                notes={this.state.notes}
+                deleteNote={this.deleteNote}
+                app={this.getApp()}
+              />
             </section>
           </BrowserRouter>
         </main>
-      </div>
+      </section>
     );
   }
 }
 
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
