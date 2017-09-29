@@ -7,6 +7,7 @@ class AboutContainer extends React.Component {
     return (
       <div className="about-container">
         <h2>Hello from the about container!!</h2>
+        // cant get to render
       </div>
     );
   }

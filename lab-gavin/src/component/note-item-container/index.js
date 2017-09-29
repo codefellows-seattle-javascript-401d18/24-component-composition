@@ -41,7 +41,7 @@ class NoteItem extends React.Component {
             <section className="update">
               <NoteCreateForm
                 noteUpdate={this.props.note}
-                submitTitle='Update Note'
+                buttonLabel='Update Note'
                 handleSubmit={this.updateNote}
               />
             </section>

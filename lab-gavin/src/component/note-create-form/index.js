@@ -28,7 +28,7 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if(this.props.submitTitle == 'Update Note') {
+    if(this.props.buttonLabel == 'Update Note') {
       this.props.handleSubmit(this.state, this.props.noteUpdate.id);
     }else{
       this.props.handleSubmit(this.state);
@@ -59,7 +59,7 @@ class NoteCreateForm extends React.Component {
           <span className="underline"></span>
         </div>
         <div className='buttonContainer'>
-          <button className='button' type='submit'>{this.props.submitTitle}</button>
+          <button className='button' type='submit'>{this.props.buttonLabel}</button>
         </div>
       </form>
     );
