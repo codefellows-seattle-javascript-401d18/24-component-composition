@@ -6,9 +6,10 @@ class NoteCreateForm extends React.Component {
     super(props);
     this.state = {
       id: uuid(),
+      title: '',
       editing: false,
       completed: false,
-      content: typeof string,
+      content: '',
     };
     //Bind things//
     this.handleChange = this.handleChange.bind(this);
@@ -43,12 +44,13 @@ class NoteCreateForm extends React.Component {
         <input
           type = "text"
           name = "content"
-          placeholder = "Write a note here! YEAH"
+          placeholder = 'Today was...'
           value = {this.state.content}
           onChange = {this.handleChange}/>
 
-          <button type="submit">Click!</button>
+          <button type="submit">Commit a note to your journal</button>
         </form>
+        <NoteList/>
       </div>
     );
   }

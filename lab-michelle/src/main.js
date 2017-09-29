@@ -44,7 +44,10 @@ class App extends React.Component {
           <BrowserRouter>
             <section>
             //We could add more routes
-              <Route exact path="/" component = {() => <NoteCreateForm app={this.appStateGet()} /> }/>
+            <Route exact path="/" component={()=> <NoteCreateForm}
+            <Route exact path="/" component={() => <DashboardContainer app={this.getApp()}/>} />
+<Route exact path="/about" component={AboutContainer} />
+              <Route exact path="/" component = {() => {<NoteCreateForm app={this.appStateGet()}/>}}/>
             </section>
             </BrowserRouter>
         </main>
