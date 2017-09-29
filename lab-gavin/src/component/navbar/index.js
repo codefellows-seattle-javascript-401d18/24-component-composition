@@ -10,6 +10,7 @@ class Navbar extends React.Component {
       <header>
         <section className="title">
           <h1 className="titleName">NOTERAMA</h1>
+          // want to make a nav here why not scott?
         </section>
       </header>
     );

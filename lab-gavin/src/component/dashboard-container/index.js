@@ -1,5 +1,5 @@
 import React from 'react';
-import uuid from 'uuid/v1';
+import uuid from 'uuid';
 import './_dashboard-container.scss';
 
 import NoteCreateForm from '../note-create-form';
@@ -22,7 +22,7 @@ class DashboardContainer extends React.Component {
       <div>
         <NoteCreateForm
           handleSubmit={this.noteCreate}
-          submitTitle='Submit Note'
+          buttonLabel='Submit Note'
         />
       </div>
     );
