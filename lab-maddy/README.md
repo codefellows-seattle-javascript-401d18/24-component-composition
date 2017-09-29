@@ -24,18 +24,19 @@ refactor and add the following components:
 
 ###### NoteUpdateForm
 * [x]create a `NoteUpdateForm` component
-    []- that inherits a note through props
+    - [] that inherits a note through props
   * []on submit, this should update the App's state with an updated note
 
 ###### Refactor the NoteItem Component
+* [x] add a NoteItem component
 * include the following behavior:
-  []* if the user double clicks on a note's content, it should switch to the edit view  
+  * [] if the user double clicks on a note's content, it should switch to the edit view  
 * default view
-  []* display the note content and a delete button
-  []* the delete button should remove the note from the application's state
+  * [] display the note content and a delete button
+  * [] the delete button should remove the note from the application's state
 * edit view
-  []* show the `NoteUpdateForm` and a cancel button
-  []* `onNoteUpdateForm` submit (or click of the cancel button) should switch back to the default view
+  * [] show the `NoteUpdateForm` and a cancel button
+  * [] `onNoteUpdateForm` submit (or click of the cancel button) should switch back to the default view
 
 ###### App Component Tree
 Your components should be nested in the following layout  
