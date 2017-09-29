@@ -38,14 +38,14 @@ class DashboardContainer extends React.Component {
   }
 
   render() {
-    console.log('GETAPPSTATE?:', this.props.getAppState);
     return (
       <div className='dashboard-container'>
         <div>
-        <NoteForm
-        buttonText='Add Note'
-        handleSubmit={this.noteCreate}
-        />
+          <NoteForm
+            buttonText='Add Note'
+            handleSubmit={this.noteCreate}
+             />
+        </div>
         <div>
           <NoteList notes={this.props.getAppState.state.notes}
           deleteNote={this.deleteNote} updateNote={this.updateNote}
