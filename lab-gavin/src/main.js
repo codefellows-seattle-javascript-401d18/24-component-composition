@@ -46,7 +46,8 @@ class App extends React.Component {
           <BrowserRouter>
             <section>
               <Route exact path='/' component={() => <DashboardContainer app={this.getApp()} />} />
-              // Couldnt get about path to work
+              {// Couldnt get about path to work
+              }
               <NoteList
                 notes={this.state.notes}
                 deleteNote={this.deleteNote}

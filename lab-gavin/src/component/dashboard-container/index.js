@@ -20,6 +20,7 @@ class DashboardContainer extends React.Component {
   render() {
     return (
       <div>
+        <h1>Create a new note here!</h1>
         <NoteCreateForm
           handleSubmit={this.noteCreate}
           buttonLabel='Submit Note'

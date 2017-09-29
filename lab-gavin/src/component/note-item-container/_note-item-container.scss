@@ -12,11 +12,8 @@ body {
   background: $secondary;
   font-family: $font-primary;
 
-  .note-container {
-    width: 100%;
-    text-align: center;
-    text-shadow: 2px 1px;
-    font-size: 1vw;
+  li {
+    background-color: rgb(217,83,79);
   }
 
   li h2 {

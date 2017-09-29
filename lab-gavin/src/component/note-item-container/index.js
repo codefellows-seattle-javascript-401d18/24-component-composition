@@ -46,21 +46,19 @@ class NoteItem extends React.Component {
               />
             </section>
             :
-            <section className="noteStyle">
-              <section className='noteText'>
-                <section className='textAlign'>
-                  <h2>*{this.props.note.title}*</h2>
-                </section>
-                <span>
-                  <section className='setP'>
-                    <p>{this.props.note.content}</p>
-                  </section>
-                </span>
-                <section className='textAlign'>
-                  <p>Double Click To Edit</p>
-                </section>
-                <button className='deleteButton' onClick={this.handleDelete}>X</button>
+            <section>
+              <section>
+                <h2>*{this.props.note.title}*</h2>
               </section>
+              <span>
+                <section>
+                  <p>{this.props.note.content}</p>
+                </section>
+              </span>
+              <section>
+                <p>Double Click To Edit</p>
+              </section>
+              <button className='button' onClick={this.handleDelete}>X</button>
             </section>
         }
       </li>

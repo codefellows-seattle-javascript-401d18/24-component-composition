@@ -12,19 +12,15 @@ body {
   background: $secondary;
   font-family: $font-primary;
 
+  header {
+    text-align: center;
+    background-color: rgb(91,192,222);
+    padding: 5vw;
+  }
+
+  header h1 {
+    font-size: 32px;
 
 
-
-  pre {
-    background: $black;
-    color: $white;
-    padding: $gutter-lg;
-    border-radius: $border-radius;
-
-    code {
-      max-width: 50%;
-      margin: $gutter-sm auto;
-      font-size: 2.5vw;
-    }
   }
 }
