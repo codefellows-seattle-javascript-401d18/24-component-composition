@@ -1,66 +1,71 @@
-import React from 'react';
-import NoteUpdateForm from '../note-update-form';
 import './_note-item-container.scss';
 
-class ListContainer extends React.Component {
-  constructor(props) {
+import React from 'react';
+import NoteCreateForm from '../note-create-form';
+
+class NoteItem extends React.Component {
+  constructor(props){
     super(props);
     this.state = {
-      title: '',
-      content: '',
-      edit: false,
-      noteList:
-      this.props.get.state.notes.map(item =>
-        <li key={item.id}>
-          <h2>{item.title}:</h2>{item.content}
-          <button onClick={() => this.props.handleNoteDelete(item)}>Delete</button>
-          {
-          }
-        </li>
-
-      ),
+      editing: null,
     };
 
-    this.handleEditToggle = this.handleEditToggle.bind(this);
-
+    this.updateNote = this.updateNote.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.setTrue = this.setTrue.bind(this);
   }
 
-  handleEditToggle(){
-    this.setState({
-      edit: true,
+  handleDelete() {
+    this.props.deleteNote(this.props.note.id);
+  }
+
+  setTrue() {
+    this.setState({ editing: true });
+  }
+
+  updateNote(note, id) {
+    note.id = id;
+    let notes = this.props.notes;
+    notes = notes.map(prevNote => {
+      return id === prevNote.id ? note : prevNote;
     });
+    this.props.app.setState({ notes: notes});
+    this.setState({ editing: false });
   }
-
-
-  handleChange(e){
-    this.props.get.setState({
-      [e.target.name]: e.target.value,
-    });
-  }
-
-
-
 
   render() {
     return (
-      <div onDoubleClick={() => this.handleEditToggle()} className="note-list">
-        {this.state.noteList.length ?
-          <ul>
-            {this.state.noteList}
-          </ul> :
-          <h2>There are no notes</h2>
-
+      <li onDoubleClick={this.setTrue}>
+        {
+          this.state.editing == true ?
+            <section className="update">
+              <NoteCreateForm
+                noteUpdate={this.props.note}
+                submitTitle='Update Note'
+                handleSubmit={this.updateNote}
+              />
+            </section>
+            :
+            <section className="noteStyle">
+              <section className='noteText'>
+                <section className='textAlign'>
+                  <h2>*{this.props.note.title}*</h2>
+                </section>
+                <span>
+                  <section className='setP'>
+                    <p>{this.props.note.content}</p>
+                  </section>
+                </span>
+                <section className='textAlign'>
+                  <p>Double Click To Edit</p>
+                </section>
+                <button className='deleteButton' onClick={this.handleDelete}>X</button>
+              </section>
+            </section>
         }
-        {this.state.edit ?
-          <ul>
-            <NoteUpdateForm
-              get={this.props.get} />
-          </ul> :
-          <h2>Not yet toggled</h2>
-        }
-      </div>
+      </li>
     );
   }
 }
 
-export default ListContainer;
+export default NoteItem;
