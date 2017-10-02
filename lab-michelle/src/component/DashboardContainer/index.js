@@ -21,10 +21,11 @@ class DashboardContainer extends React.Component {
       <div className="dashboard">
         <h2>We Are In The Dashboard</h2>
         <aside>
-          <p>Note List</p>
+          <p>NoteList</p>
         </aside>
 
-        <NoteList app={this.props.app} />
+        <NoteList app={this.props.app}/>
+        <NoteCreateForm note={this.props.app}/>
       </div>
     );
   }

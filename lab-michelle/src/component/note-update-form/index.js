@@ -7,24 +7,53 @@ class NoteUpdateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //state
+      id: this.props.note.id,
+      title: this.props.note.title,
+      content: this.props.note.content,
     };
-    //Bind things//
-    //onsubmit binding//
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  //onSubmit//
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault;
+    this.props.app.setState(prevState => ({
+      notesArr: prevState.notesArr.map(note => {
+        if(note.id === this.state.id) note = this.state;
+        return note;
+      }),
+    }));
+    this.props.toggle();
+  }
 
   render() {
-    return {
-      <section className="noteModal">
-        <button onClick={this.props.close}x</button>
-        <main>
-          {this.props.children}
-        </main>
-      </section>
-      //some things
-    };
+    return (
+      <form
+        className = "update-form"
+        onSubmit = {this.handleSubmit}
+        >
+
+        <input
+          type="text"
+          name="title"
+          value={this.state.title}
+          onChange = {this.handleChange}/>
+
+        <input
+          type = "number"
+          name = "price"
+          value = {this.state.price}
+          onChange = {this.handleChange}/>
+
+          <button type="Submit">Update note</button>
+          </form>
+    );
   }
 }
 
