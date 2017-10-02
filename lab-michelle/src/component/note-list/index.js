@@ -6,7 +6,7 @@ class NoteList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notesList: this.props.notesArr.map(item => <li key={item.id}>(item.title)</li>),
+      notesList: this.props.app.state.notesArr.map(item => <li key={item.id}>(item.title)</li>),
     };
     //Bind things//
   }

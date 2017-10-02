@@ -1,6 +1,6 @@
 import React from 'react';
-import NoteCreateForm from '../component/note-create-form';
-import NoteList from '../component/note-list';
+import NoteCreateForm from '../note-create-form';
+import NoteList from '../note-list';
 
 let renderIf = (test, componentTrue, componentFalse=undefined) => test ? componentTrue : componentFalse;
 
