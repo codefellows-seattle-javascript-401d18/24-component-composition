@@ -1,5 +1,5 @@
 {
-  "name": "23",
+  "name": "00-code-review",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -8,7 +8,7 @@
     "watch": "webpack-dev-server --inline --hot"
   },
   "keywords": [],
-  "author": "maddy",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -23,8 +23,11 @@
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2",
     "sass-loader": "^6.0.6",
-    "superagent": "^3.6.0",
+    "uuid": "^3.1.0",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.4"
   }
 }

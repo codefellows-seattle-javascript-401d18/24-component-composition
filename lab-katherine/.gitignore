@@ -4,6 +4,9 @@ db
 build
 *.env
 .*.env
+.tern*
+whiteboard-solutions/
+frontend/
 
 ### OSX ###
 .DS_Store
@@ -50,6 +53,7 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
+db
 
 # Optional npm cache directory
 .npm
