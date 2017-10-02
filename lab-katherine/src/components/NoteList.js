@@ -1,12 +1,12 @@
 import React from 'react';
-import NoteUpdateForm from './NoteUpdate';
+import NoteUpdate from './NoteUpdate';
 
 class NoteList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state={
-      noteList: this.props.content,
+      noteList: this.props.app.state.content,
       noteUpdate: false,
     };
 
@@ -35,11 +35,11 @@ class NoteList extends React.Component {
                 <li key={item.id}>
                   {item.content}
                   <button onClick={(event) => this.handleDelete(event, item.id)}>x</button>
-                  <button key={item.id} onClick={this.toggleUpdate}>edit</button>
+                  <button className={item.id} onClick={this.toggleUpdate}>edit</button>
                   {this.state.noteUpdate ?
                     <NoteUpdate
                       key={item.id}
-                      content={item}
+                      content={item.content}
                       app={this.props.app}
                       toggle={this.toggleUpdate}/> :
                     undefined

@@ -39,6 +39,7 @@ class NoteForm extends React.Component {
           onChange={this.handleChange} />
 
         <button
+          className="submit-button"
           type="submit"
           disabled={!this.state.content}>
             Add
