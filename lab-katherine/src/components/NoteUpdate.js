@@ -5,8 +5,8 @@ class NoteUpdate extends React.Component {
     super(props);
 
     this.state = {
-      id: this.props.note.id,
-      content: this.props.note.content,
+      id: this.props.app.state.id,
+      content: this.props.app.state.content,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,9 +22,12 @@ class NoteUpdate extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.app.setState(prevState => ({
-      content: prevState.content.map(note => {
-        if(note.id === this.state.id) note = this.state;
-        return note;
+      content: prevState.content.map(item => {
+        console.log(item.id)
+        console.log(this.state.id)
+        console.log(this.props.app.state.id)
+        if(item.id === this.props.app.state.id) item = this.state;
+        return item;
       }),
     }));
     this.props.toggle();
@@ -40,7 +43,7 @@ class NoteUpdate extends React.Component {
           value={this.state.content}
           onChange={this.handleChange} />
 
-        <button type="submit">update</button>
+        <button className="update-button" type="submit">update</button>
       </form>
     );
   }
