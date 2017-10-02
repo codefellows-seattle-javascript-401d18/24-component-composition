@@ -1,5 +1,5 @@
 import React from 'react';
-import NoteCreateForm from '../NoteCreateForm';
+import NoteCreateForm from '../note-create-form';
 //I think this one is static
 
 class NoteList extends React.Component {
