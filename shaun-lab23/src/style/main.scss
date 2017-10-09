@@ -1,0 +1,149 @@
+
+$primary: #d6ca98;
+$secondary: #fff7d8;
+$black: #222;
+$white: #eee;
+$gutter-sm: 2vw;
+$gutter-lg: $gutter-sm * 2;
+$font-primary: 'helvetica';
+$border-radius: 3px;
+
+body {
+  font-family: 'Roboto';
+  background: -webkit-linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%); /* W3C */
+  text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  pre {
+    background: $black;
+    color: $white;
+    padding: $gutter-lg;
+    border-radius: $border-radius;
+
+    code {
+      max-width: 50%;
+      margin: $gutter-sm auto;
+      font-size: 2.5vw;
+    }
+  }
+}
+h1 {
+  background-color: #2980b9;
+  color: white;
+  margin: 0;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+h2 {
+  background-color: white;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+  list-style: none;
+}
+
+
+li {
+  background-color: white;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+  list-style: none;
+
+}
+
+input {
+  font-size: 18px;
+  background-color: #f7f7f7;
+  width: 100%;
+  padding: 13px 13px 13px 20px;
+  box-sizing: border-box;
+  color: #2980b9;
+  border: 3px solid rgba(0,0,0,0)
+}
+
+input:focus {
+  background-color: white;
+  border: 2px solid #2980b9;
+  outline: none;
+}
+
+li:nth-family(2n) {
+  background-color: #f7f7f7;
+}
+.fa-plus{
+  float: right;
+}
+
+span {
+  background-color: #e74c3c;
+  height: 40px;
+  margin-right: 20px;
+  text-align: center;
+  color: white;
+  width: 0px;
+  display: inline-block;
+  transition: 0.2s linear;
+  opacity: 0;
+}
+
+li:hover span {
+  width: 40px;
+  opacity: 1.0;
+}
+
+
+
+ .board {
+  border-color: red;
+  border-style: solid;
+  border-width: 1px;
+}
+ .limit {
+  border-color: red;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.results {
+  max-width: 75vw;
+  text-align: center;
+  // margin-left: 5vw;
+}
+
+select {
+  -webkit-appearance: none;
+  text-align-last: center;
+}
+
+.button, select, option {
+  width: 25vw;
+  padding: $gutter-sm;
+  margin: ($gutter-sm / 2) 0;
+  font-size: 2vw;
+  border-radius: $border-radius;
+  background: $white;
+  border: 1px solid $black;
+  transition: 350ms;
+
+  &:hover {
+    background: $primary;
+  }
+}
+
+.myP {
+  display: inline-block;
+  padding: $gutter-lg;
+}
