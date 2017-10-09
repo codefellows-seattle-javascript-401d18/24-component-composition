@@ -1,0 +1,26 @@
+$primary: #d6ca98;
+$secondary: #fff7d8;
+$black: #222;
+$white: #eee;
+$gutter-sm: 2vw;
+$gutter-lg: $gutter-sm * 2;
+$font-primary: 'helvetica';
+$border-radius: 3px;
+
+
+body {
+  background: $secondary;
+  font-family: $font-primary;
+
+  header {
+    text-align: center;
+    background-color: rgb(91,192,222);
+    padding: 5vw;
+  }
+
+  header h1 {
+    font-size: 32px;
+
+
+  }
+}
