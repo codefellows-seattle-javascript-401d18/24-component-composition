@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteCreateForm from '../note-create-form';
 import NoteList from '../note-list';
+import uuid from 'uuid/v4';
 import Modal from '../modal';
 
 let renderIf = (test, componentTrue, componentFalse = undefined) => test ? componentTrue : componentFalse;
@@ -11,6 +12,15 @@ class DashboardContainer extends React.Component {
     this.state = {
       showErrors: false,
     };
+    this.handleCreate= this.handleCreate.bind(this);
+  }
+
+  handleCreate(note) {
+    note.id = uuid;
+    this.props.app.setState(prevState => ({
+      notes: [...prevState.notes, note],
+    })
+);
   }
 
   componentDidUpdate() {
@@ -23,7 +33,7 @@ class DashboardContainer extends React.Component {
       <div className = "dashboard-container">
         <h2>TakeNote!</h2>
         <p>An app for busy humans</p>
-        <NoteCreateForm app = {this.props.app}/>
+        <NoteCreateForm app = {this.props.app} onComplete={this.handleCreate}/>
         <NoteList app = {this.props.app}/>
         {//
         //

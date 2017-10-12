@@ -24,9 +24,7 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.app.setState(prevState => ({
-      notes: [...prevState.notes, this.state],
-    }));
+    this.props.onComplete(this.state);
   }
 
   componentDidUpdate() {

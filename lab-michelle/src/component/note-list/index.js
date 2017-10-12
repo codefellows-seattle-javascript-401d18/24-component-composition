@@ -1,5 +1,5 @@
 import React from 'react';
-import NoteUpdateForm from '../note-update-form';
+import NoteCreateForm from '../note-create-form';
 
 class NoteList extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class NoteList extends React.Component {
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.toggleUpdate = this.toggleUpdate.bind(this);
+    this.handleUpdate =  this.handleUpdate.bind(this);
   }
 
   handleDelete(e, id) {
@@ -18,9 +19,20 @@ class NoteList extends React.Component {
     }));
   }
 
+  handleUpdate(note, id) {
+    note.id = id;
+    let notes = this.props.app.state.notes;
+    notes = notes.map(prevNote => {
+      return id === prevNote.id ? note : prevNote;
+    });
+    this.props.app.setState({notes: notes});
+    this.setState({noteEdit : false });
+  }
+
+
   toggleUpdate(e) {
     console.log(e.target);
-    this.setState({notesEdit: !this.state.notesEdit});
+    this.setState({noteEdit: !this.state.notesEdit});
   }
 
   render() {
@@ -36,11 +48,11 @@ class NoteList extends React.Component {
                   <button onClick={(event) => this.handleDelete(event, note.id)}>X</button>
                   <button key={note.id} onClick={this.toggleUpdate}>edit</button>
                   {this.state.noteEdit ?
-                    <NoteUpdateForm
+                    <NoteCreateForm
                     key={note.id}
                     note={note}
                     app={this.props.app}
-                    toggle={this.toggleUpdate}/> :
+                    onComplete={this.handleUpdate}/> :
                     undefined
                   }
                   </li>)}
