@@ -5,6 +5,10 @@ import uuid from 'uuid/v4';
 class NoteCreateForm extends React.Component {
   constructor(props) {
     super(props);
+
+    let title = props.noteUpdate ? props.noteUpdate.title : '';
+    let content = props.noteUpdate ? props.noteUpdate.content : '';
+
     this.state = {
       id: uuid(),
       title: '',

@@ -50,7 +50,8 @@ class NoteList extends React.Component {
                   {this.state.noteEdit ?
                     <NoteCreateForm
                     key={note.id}
-                    note={note}
+                    note={this.props.app.state.notes}
+                    noteUpdate={this.props.app.state.notes}
                     app={this.props.app}
                     onComplete={this.handleUpdate}/> :
                     undefined
