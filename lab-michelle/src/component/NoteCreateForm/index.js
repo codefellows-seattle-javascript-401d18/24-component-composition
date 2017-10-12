@@ -11,7 +11,6 @@ class NoteCreateForm extends React.Component {
       completed: false,
       content: '',
     };
-    //Bind things//
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -44,7 +43,7 @@ class NoteCreateForm extends React.Component {
         <input
           type = "text"
           name = "content"
-          placeholder = 'Today was...'
+          placeholder = "Today was..."
           value = {this.state.content}
           onChange = {this.handleChange}/>
 

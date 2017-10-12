@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
+import DashboardContainer from './component/dashboard-container';
 import NoteCreateForm from './component/NoteCreateForm';
 import NoteList from './component/NoteList';
 import uuid from 'uuid/v4';
-// import COMPONENT from './FILEPATH'
-//ex: import DashboardContainer from './component/dashboard-container'
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +12,6 @@ class App extends React.Component {
     this.state = {
       notesArr: [],
     };
-    //BIND STUFF
     this.appStateGet = this.appStateGet.bind(this);
   }
 
@@ -21,7 +19,6 @@ class App extends React.Component {
     console.log('__STATE__', this.state);
   }
 
-  //A function to pass state to notes//
   appStateGet() {
     return {
       state: this.state,
@@ -30,24 +27,17 @@ class App extends React.Component {
   }
 
   render() {
-    //a function for the Notes doing whatever they do
     return (
       <div className = "application">
         <header>
           <ul>
             <li><a href="/">home</a></li>
-            //We could add more routes
-            // <li><a href="/about">about</a></li>
           </ul>
         </header>
         <main className="main">
           <BrowserRouter>
             <section>
-            //We could add more routes
-            <Route exact path="/" component={()=> <NoteCreateForm}
             <Route exact path="/" component={() => <DashboardContainer app={this.getApp()}/>} />
-<Route exact path="/about" component={AboutContainer} />
-              <Route exact path="/" component = {() => {<NoteCreateForm app={this.appStateGet()}/>}}/>
             </section>
             </BrowserRouter>
         </main>
