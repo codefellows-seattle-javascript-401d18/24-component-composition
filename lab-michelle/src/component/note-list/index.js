@@ -5,7 +5,7 @@ class NoteList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notesList: this.props.app.state.notes,
+      noteList: this.props.app.state.notes,
       noteEdit: false,
     };
     this.handleDelete = this.handleDelete.bind(this);
@@ -20,15 +20,16 @@ class NoteList extends React.Component {
 
   toggleUpdate(e) {
     console.log(e.target);
-    this.setState({expenseEdit: !this.state.expenseEdit});
+    this.setState({notesEdit: !this.state.notesEdit});
   }
 
   render() {
+    console.log(this.props.app);
     return (
       <div className="notes_list">
-        {this.state.notesList.length ?
+        {this.state.noteList.length ?
           <ul>
-            {this.state.notesList
+            {this.state.noteList
               .map(note =>
                 <li key={note.id}>
                   {note.title}: {note.content}

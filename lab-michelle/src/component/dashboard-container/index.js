@@ -18,19 +18,22 @@ class DashboardContainer extends React.Component {
   }
 
   render() {
+    console.log('This is the dash props', this.props.app);
     return (
       <div className = "dashboard-container">
         <h2>TakeNote!</h2>
         <p>An app for busy humans</p>
-
         <NoteCreateForm app = {this.props.app}/>
         <NoteList app = {this.props.app}/>
+        {//
+        //
 
-        {renderIf(!this.state.showErrors,
-          <Modal close={() => this.setState({showErrors: !this.state.showErrors})}>
-            <h1>A wild error appears</h1>
-          </Modal>
-        )}
+        // {renderIf(!this.state.showErrors,
+        //   <Modal close={() => this.setState({showErrors: !this.state.showErrors})}>
+        //     <h1>A wild error appears</h1>
+        //   </Modal>
+        // )}
+      }
       </div>
     );
   }

@@ -12,14 +12,14 @@ class App extends React.Component {
     this.state = {
       notes: [],
     };
-    this.appStateGet = this.appStateGet.bind(this);
+    this.getApp = this.getApp.bind(this);
   }
 
   componentDidUpdate() {
     console.log('__STATE__', this.state);
   }
 
-  appStateGet() {
+  getApp() {
     return {
       state: this.state,
       setState: this.setState.bind(this),

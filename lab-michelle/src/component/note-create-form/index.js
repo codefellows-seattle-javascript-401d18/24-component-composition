@@ -1,4 +1,5 @@
 import React from 'react';
+import NoteList from '../note-list';
 import uuid from 'uuid/v4';
 
 class NoteCreateForm extends React.Component {
@@ -50,7 +51,6 @@ class NoteCreateForm extends React.Component {
 
           <button type="submit">Commit a note to your journal</button>
         </form>
-        <NoteList/>
       </div>
     );
   }
