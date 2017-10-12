@@ -1,6 +1,7 @@
 import React from 'react';
-import NoteCreateForm from '../NoteCreateForm';
-import NoteList from '../NoteList';
+import NoteCreateForm from '../note-create-form';
+import NoteList from '../note-list';
+import Modal from '../modal';
 
 let renderIf = (test, componentTrue, componentFalse = undefined) => test ? componentTrue : componentFalse;
 
@@ -24,6 +25,12 @@ class DashboardContainer extends React.Component {
 
         <NoteCreateForm app = {this.props.app}/>
         <NoteList app = {this.props.app}/>
+
+        {renderIf(!this.state.showErrors,
+          <Modal close={() => this.setState({showErrors: !this.state.showErrors})}>
+            <h1>A wild error appears</h1>
+          </Modal>
+        )}
       </div>
     );
   }
