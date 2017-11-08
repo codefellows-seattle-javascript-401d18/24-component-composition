@@ -10,7 +10,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
+      entries: [0],
+      note: '',
       word_limit: 400,
     };
     this.getApp = this.getApp.bind(this);

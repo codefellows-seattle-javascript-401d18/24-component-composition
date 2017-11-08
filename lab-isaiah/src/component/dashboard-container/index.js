@@ -16,18 +16,18 @@ class DashboardContainer extends React.Component {
   noteCreate(note) {
     note.id = uuid();
     this.props.app.setState(prevState => ({
-      notes: [...prevState.notes, note],
+      note: [...prevState.note, note],
     }));
   }
 
   render() {
-    console.log('dash',this.props.app.state);
+    console.log('dash',this.props.app.state.note);
     return (
       <div className="dashboard-container">
         <h2>Welcome!</h2>
         <p><strong>Add a note below:</strong></p>
         <NoteForm handleNoteCreate={this.noteCreate}/>
-        <NoteList notes={this.props.app.state.notes}/>
+        <NoteList entries={this.props.app.state.note}/>
       </div>
     );
   }

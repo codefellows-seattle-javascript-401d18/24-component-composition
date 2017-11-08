@@ -24,9 +24,9 @@ class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('Isaiah, Look Here!', this.props.app);
-    this.props.handleNoteCreate(this).setState(prevState => ({
-      title: [...prevState.notes, this.state],
+    console.log('Isaiah, Look Here!', this.props.handleNoteCreate());
+    this.props.setState(prevState => ({
+      entries: [...prevState.entries, this.state],
     }));
   }
 
@@ -34,21 +34,21 @@ class NoteForm extends React.Component {
     return (
       <form
         className="note-form"
-        onSubmit={this.handleSubmit}>
+        onSubmit={this.handleSubmit.bind(this)}>
 
         <input
           type="text"
           name="title"
           placeholder="title"
           value={this.state.title}
-          onChange={this.handleChange}/>
+          onChange={this.handleChange.bind(this)}/>
 
         <input
           type="text"
           name="noteText"
           placeholder="noteText"
           value={this.state.noteText}
-          onChange={this.handleChange}/>
+          onChange={this.handleChange.bind(this)}/>
 
         <button type="submit">Add</button>
       </form>
