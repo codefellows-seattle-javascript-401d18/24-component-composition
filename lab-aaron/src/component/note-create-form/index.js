@@ -29,20 +29,20 @@ class NoteCreateForm extends React.Component {
 
   render() {
     return (
-      <div className="note-container">
-        <h2>Here are some notes!</h2>
+      <div className ="note-container">
+        <h2>Notes</h2>
         <form
-          className="note-create-form"
+          className = "note-create-form"
           onSubmit = {this.handleSubmit}>
 
           <input
             type = "text"
             name = "content"
-            placeholder = "Write a Note!"
+            placeholder = "Write a Note"
             value = {this.state.content}
             onChange = {this.handleChange}/>
 
-          <button type="submit">Click Here to Submit!</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );

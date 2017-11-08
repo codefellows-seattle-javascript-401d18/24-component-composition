@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-class NoteUpdateForm extends React.Component {
+class NoteList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,4 +14,4 @@ class NoteUpdateForm extends React.Component {
   }
 }
 
-export default NoteUpdateForm;
+export default NoteList;

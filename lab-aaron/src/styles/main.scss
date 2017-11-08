@@ -1,20 +1,23 @@
 $gutter-sm: 1.5vw;
 $gutter-lg: $gutter-sm * 2;
+$primary: #01ABAA;
+$secondary: #DFDCE3;
 
 * {
   max-width: 100em;
 }
 
 body {
-  background-color: #01ABAA;
+  background-color: $primary;
   text-align: center;
+  text-decoration: none;;
   background-size: cover;
   background-position: fixed;
   background-repeat: no-repeat;
   max-width: 100%;
 }
 main {
-  background-color: #DFDCE3;
+  background-color: $secondary;
   width: 960px;
   margin: 0 auto;
   margin-top: 50px;

@@ -5,6 +5,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
+  devServer: {
+    'historyApiFallback': true,
+  },
   entry: `${__dirname}/src/main.js`,
   output: {
     path: `${__dirname}/build`,
@@ -12,7 +15,7 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
-    new HtmlPlugin({ template: `${__dirname}/src/index.html` }),
+    new HtmlPlugin({ template: `${__dirname}/src/index.html`}),
     new ExtractTextPlugin('bundle-[hash].css'),
   ],
   module: {

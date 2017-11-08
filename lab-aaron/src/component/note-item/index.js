@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-class NoteUpdateForm extends React.Component {
+class NoteItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,8 +10,9 @@ class NoteUpdateForm extends React.Component {
 
   render() {
     return {
+
     };
   }
 }
 
-export default NoteUpdateForm;
+export default NoteItem;
