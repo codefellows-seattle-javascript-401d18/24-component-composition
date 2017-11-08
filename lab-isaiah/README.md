@@ -104,7 +104,7 @@ App
 ```
 ###### App Component
 * the app component should manage the entire **application state**
-* the state should contain a notes array
+* the state should contain a entries array
 * each note should have the following data
   * `id` - always should contain the result of `uuid.v1()`
   * `editing` - false by default
@@ -114,7 +114,7 @@ App
 ###### NoteCreateForm Component
 * `onSubmit` - the `NoteCreateForm` component should add a note to the application state
 * **note:** in your app component, create a method for logging the state of your application when a note is added (ie: `componentDidUpdate`)
-  * this should show an array of all notes that have been added to the state
+  * this should show an array of all entries that have been added to the state
 
 #### Stretch Goals
 
