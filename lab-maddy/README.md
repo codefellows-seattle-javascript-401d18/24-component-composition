@@ -2,6 +2,7 @@
 ======
 #### Project Description
 
+In lab 23, we created a simple note app, but we don't have the functionality to update that note. That's what we are working on in this lab, lab 24, utilizing props and state to create update functionality.
 
 ## Learning Objectives
 * We will be able to utilize proper component composition constructs
@@ -25,7 +26,7 @@ refactor and add the following components:
 ###### NoteUpdateForm
 * [x]create a `NoteUpdateForm` component
     - [] that inherits a note through props
-  * []on submit, this should update the App's state with an updated note
+  * []on submit, this should UPDATE the App's state with an updated note
 
 ###### Refactor the NoteItem Component
 * [x] add a NoteItem component
