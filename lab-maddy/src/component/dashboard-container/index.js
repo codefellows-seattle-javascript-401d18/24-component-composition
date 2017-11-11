@@ -1,33 +1,52 @@
 import React from 'react';
-import uuid from 'uuid/v4';
-import NoteForm from '../note-form';
+import NoteCreateForm from '../note-create-form';
 import NoteList from '../note-list';
+import uuid from 'uuid/v4';
+import Modal from '../modal';
+
+let renderIf = (test, componentTrue, componentFalse = undefined) => test ? componentTrue : componentFalse;
 
 class DashboardContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.noteCreate = this.noteCreate.bind(this);
+    this.state = {
+      showErrors: false,
+    };
+    this.handleCreate= this.handleCreate.bind(this);
+  }
+
+  handleCreate(note) {
+    note.id = uuid;
+    this.props.app.setState(prevState => ({
+      notes: [...prevState.notes, note],
+    })
+);
   }
 
   componentDidUpdate() {
-    console.log('__APP_STATE_FROM_DASHBOARD__', this.props.app.state);
-  }
-
-  noteCreate(note) {
-    note.id = uuid();
-    this.props.app.setState(prevState => ({
-      notes: [...prevState.notes, note],
-    }));
+    console.log('__DASHBOARD_APP_STATE__', this.props.app.state);
   }
 
   render() {
+    console.log('This is the dash props', this.props.app);
     return (
-      <div className="dashboard-container">
-        <h2>We're in the dashboard</h2>
-        <NoteForm handleNoteCreate={this.noteCreate}/>
-        <NoteList notes={this.props.app.state.notes}/>
+      <div className = "dashboard-container">
+        <h2>Create a Note!</h2>
+
+        <NoteCreateForm app = {this.props.app} onComplete={this.handleCreate}/>
+        <NoteList app = {this.props.app}/>
+        {//
+        //
+
+        // {renderIf(!this.state.showErrors,
+        //   <Modal close={() => this.setState({showErrors: !this.state.showErrors})}>
+        //     <h1>A wild error appears</h1>
+        //   </Modal>
+        // )}
+      }
       </div>
     );
   }
 }
+
 export default DashboardContainer;

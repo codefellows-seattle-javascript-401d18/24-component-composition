@@ -1,4 +1,3 @@
-
 import React from 'react';
 import NoteList from '../note-list';
 import uuid from 'uuid/v4';
@@ -6,9 +5,9 @@ import uuid from 'uuid/v4';
 class NoteCreateForm extends React.Component {
   constructor(props) {
     super(props);
-
-    let title = props.noteUpdate ? props.noteUpdate.title : '';
-    let content = props.noteUpdate ? props.noteUpdate.content : '';
+    //
+    // let title = props.noteUpdate ? props.noteUpdate.title : '';
+    // let content = props.noteUpdate ? props.noteUpdate.content : '';
 
     this.state = {
       id: uuid(),
@@ -29,7 +28,10 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onComplete(this.state);
+    // this.props.onComplete(this.state);
+    this.props.app.setState(prevState => ({
+      notes: [...prevState.notes, this.state],
+    }));
   }
 
   componentDidUpdate() {
@@ -38,9 +40,7 @@ class NoteCreateForm extends React.Component {
 
   render() {
     return (
-      <div className ="note-container">
-
-
+      // <div className ="note-container">
         <form
           className = "note-create-form"
           onSubmit = {this.handleSubmit}>
@@ -48,13 +48,13 @@ class NoteCreateForm extends React.Component {
         <input
           type = "text"
           name = "content"
-          placeholder = "Today was..."
+          placeholder = "Note"
           value = {this.state.content}
           onChange = {this.handleChange}/>
 
-          <button type="submit">Create a new Note...</button>
+          <button type="submit">Create Note</button>
         </form>
-      </div>
+      // </div>
     );
   }
 }
