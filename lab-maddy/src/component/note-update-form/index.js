@@ -5,7 +5,7 @@ class NoteUpdateForm extends React.Component {
     super(props);
     this.state = {
       id: this.props.note.id,
-      title: this.props.note.title,
+      // title: this.props.note.title,
       content: this.props.note.content,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,12 +34,6 @@ class NoteUpdateForm extends React.Component {
       <form
         className="update-form"
         onSubmit={this.handleSubmit}>
-
-        <input
-          type="text"
-          name="title"
-          value={this.state.title}
-          onChange={this.handleChange}/>
 
         <input
           type="text"

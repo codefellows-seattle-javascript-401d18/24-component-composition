@@ -22,7 +22,7 @@ class NoteList extends React.Component {
 
 
   toggleUpdate(e) {
-    console.log(e.target);
+    // console.log(e.target);
     this.setState({noteEdit: !this.state.noteEdit});
   }
 
@@ -34,12 +34,12 @@ class NoteList extends React.Component {
             {this.state.noteList
               .map(note =>
                 <li key={note.id}>
-                  {note.title}: {note.content}
+                 {note.content}
                   <button onClick={(event) => this.handleDelete(event, note.id)}>X</button>
                   <button key={note.id} onClick={this.toggleUpdate}>edit</button>
+
                   {this.state.noteEdit ?
                     <NoteUpdateForm
-                    key={note.id}
                     note={note}
                     app={this.props.app}
                     toggle={this.toggleUpdate}/> :

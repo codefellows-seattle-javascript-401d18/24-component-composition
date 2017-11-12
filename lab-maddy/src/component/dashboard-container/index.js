@@ -12,7 +12,7 @@ class DashboardContainer extends React.Component {
     this.state = {
       showErrors: false,
     };
-    this.handleCreate= this.handleCreate.bind(this);
+    // this.handleCreate= this.handleCreate.bind(this);
   }
 
   handleCreate(note) {
@@ -35,15 +35,6 @@ class DashboardContainer extends React.Component {
 
         <NoteCreateForm app = {this.props.app} onComplete={this.handleCreate}/>
         <NoteList app = {this.props.app}/>
-        {//
-        //
-
-        // {renderIf(!this.state.showErrors,
-        //   <Modal close={() => this.setState({showErrors: !this.state.showErrors})}>
-        //     <h1>A wild error appears</h1>
-        //   </Modal>
-        // )}
-      }
       </div>
     );
   }
