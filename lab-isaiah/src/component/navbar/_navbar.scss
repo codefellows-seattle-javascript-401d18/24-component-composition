@@ -1,0 +1,21 @@
+header {
+  h1 {
+    display: inline-block;
+  }
+
+  .navnav {
+    display: inline-block;
+    float: right;
+
+    li {
+      margin: 0 .5em;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    a {
+      background-color: cornflowerblue;
+      text-decoration: none;
+    }
+  }
+}
