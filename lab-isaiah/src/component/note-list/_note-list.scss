@@ -1,0 +1,32 @@
+.note-list {
+  button {
+    margin: 0 40%;
+    display: inline-block;
+    width: 20%;
+    border: 2px solid green;
+    border-radius: 3px;
+    transition: 350ms;
+
+    &:hover {
+      cursor: pointer;
+      color: #7F00A1;
+      background: white;
+    }
+  }
+
+  ul {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  li {
+    background: darkgreen;
+    width: 100%;
+    margin: 2em auto;
+    list-style: none;
+  }
+
+  section {
+      text-align: center;
+    }
+}

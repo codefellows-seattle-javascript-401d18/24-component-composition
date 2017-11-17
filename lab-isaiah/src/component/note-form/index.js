@@ -1,13 +1,15 @@
 import React from 'react';
-import uuid from 'uuid/v4';
 
 class NoteForm extends React.Component {
   constructor(props) {
     super(props);
+    let title = props.noteUpdate ? props.noteUpdate.title: '';
+    let noteText = props.noteUpdate ? props.noteUpdate.noteText : '';
     this.state = {
-      id: uuid(),
-      title: '',
-      noteText: '',
+      title,
+      editing: false,
+      completed: false,
+      noteText,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,40 +19,39 @@ class NoteForm extends React.Component {
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
-      // noteText: someVal,
-      // title: someOtherVal
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('Isaiah, Look Here!', this.props.handleNoteCreate());
-    this.props.setState(prevState => ({
-      entries: [...prevState.entries, this.state],
-    }));
+    if(this.props.buttonLabel == 'Update Note') {
+      this.props.handleSubmit(this.state, this.props.noteUpdate.id);
+    }else{
+      this.props.handleSubmit(this.state);
+    }
   }
 
   render() {
     return (
-      <form
+      <form onSubmit
         className="note-form"
-        onSubmit={this.handleSubmit.bind(this)}>
+        onSubmit={this.handleSubmit}>
 
         <input
-          type="text"
           name="title"
-          placeholder="title"
+          type="text"
+          placeholder="Note Title"
           value={this.state.title}
-          onChange={this.handleChange.bind(this)}/>
+          onChange={this.handleChange}/>
 
         <input
           type="text"
           name="noteText"
-          placeholder="noteText"
+          placeholder="Note Text"
           value={this.state.noteText}
-          onChange={this.handleChange.bind(this)}/>
+          onChange={this.handleChange}/>
 
-        <button type="submit">Add</button>
+        <button className="button" type="submit">{this.props.buttonLabel}</button>
       </form>
     );
   }
